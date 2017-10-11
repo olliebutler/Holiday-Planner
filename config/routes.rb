@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users
 
   get 'groups/new', to: 'groups#new'
+  post 'groups/new', to: 'groups#create'
 end
