@@ -1,0 +1,17 @@
+<h1><%= @group.title %></h1>
+<body><%= @group.body %>
+  <p>
+  <strong>Title:</strong>
+  <%= @group.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @group.body %>
+</p>
+
+<h2>Users</h2>
+<%= render @group.users %>
+<p></P>
+<b><%= link_to 'Go back to groups', groups_path %></b> |
+</body>
