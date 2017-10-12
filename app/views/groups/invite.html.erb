@@ -10,8 +10,8 @@
   <%= @group.body %>
 </p>
 
-<%= form_for(Invite.new) do  |f| %>
-    <%= hidden_field_tag :group_id, @group.id %>
+<%= form_with scope: :group, local: true do  |f| %>
+    <%= f.hidden_field :group_id, :value => @group.id %>
     <%= f.label :email %>
     <%= f.email_field :email %>
     <%= f.submit 'Send' %>
