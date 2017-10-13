@@ -4,8 +4,8 @@ class CreateUnavalibilities < ActiveRecord::Migration[5.1]
       t.string :name
       t.datetime :start_time
       t.datetime :end_time
-      t.references :group, foreign_key: true
       t.text :message
+      t.references :group, foreign_key: true
 
       t.timestamps
     end

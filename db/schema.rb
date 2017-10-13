@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013122100) do
+ActiveRecord::Schema.define(version: 20171013125039) do
 
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20171013122100) do
     t.string "name"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.bigint "group_id"
     t.text "message"
+    t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_unavalibilities_on_group_id"

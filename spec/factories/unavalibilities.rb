@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :unavalibility do
     name "MyString"
-    start_time "2017-10-13 11:31:27"
-    end_time "2017-10-13 11:31:27"
-    group_id ""
+    start_time "2017-10-13 13:50:39"
+    end_time "2017-10-13 13:50:39"
     message "MyText"
+    group nil
   end
 end

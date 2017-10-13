@@ -25,10 +25,12 @@ class UnavalibilitiesController < ApplicationController
   # POST /unavalibilities.json
   def create
     @unavalibility = Unavalibility.new(unavalibility_params)
-
+    if @unavalibility.group_id == nil || ""
+      @unavalibility.group_id = params[:group_id]
+    end
     respond_to do |format|
       if @unavalibility.save
-        format.html { redirect_to @unavalibility, notice: 'Unavalibility was successfully created.' }
+        format.html { redirect_to Group.find(params[:group_id]), notice: 'Unavalibility was successfully created.' }
         format.json { render :show, status: :created, location: @unavalibility }
       else
         format.html { render :new }
@@ -69,6 +71,6 @@ class UnavalibilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unavalibility_params
-      params.require(:unavalibility).permit(:name, :start_time, :end_time, :group_id, :message)
+      params.require(:unavalibility).permit(:name, :start_time, :end_time, :message, :group_id)
     end
 end

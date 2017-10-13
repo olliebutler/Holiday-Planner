@@ -11,9 +11,15 @@
 </p>
 
 <p>
-  <%= month_calendar do |date| %>
-    <%= date %>
+  <%= month_calendar events: @group.unavalibilities.each do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.name %>
+    </div>
   <% end %>
+<% end %>
 </p>
 
 
@@ -25,9 +31,9 @@
     <%= hidden_field_tag :group_id, @group.id%>
     <%= hidden_field_tag :name, current_user.name %>
     <%= f.label :start_date %>
-    <%= f.datetime_select :start_time %>
+    <%= f.date_select :start_time %>
     <%= f.label :end_date %>
-    <%= f.datetime_select :end_time %>
+    <%= f.date_select :end_time %>
     <%= f.submit 'Submit' %>
 <% end %>
 
