@@ -10,6 +10,19 @@
   <%= @group.body %>
 </p>
 
+<p>
+  <strong>Members:</strong>
+  <% @group.users.each do |user| %>
+    <tr>
+      <%= user.email %>
+    </tr>
+  <% end %>
+</p>
+
+<p>
+  <strong>Invite:</strong>
+</p>
+
 <%= form_for(Invite.new) do  |f| %>
     <%= hidden_field_tag :group_id, @group.id %>
     <%= f.label :email %>

@@ -4,13 +4,14 @@ class InvitesController < ApplicationController
     @invie = Invite.new
   end
   def create
-    @user = User.find_by_email(params[:email])
+    @i = params[:invite]
+    @user = User.find_by_email(@i[:email])
     @invite = Invite.new
     @invite.group_id = params[:group_id]
-    @invite.sender_id = current_user
-    @invite.recipient_id = @user
+    @invite.sender_id = current_user.id
+    @invite.recipient_id = @user.id
     @invite.email = params[:email]
     @invite.save
-    redirect_to group_path(@group)
+    redirect_to Group.find(params[:group_id])
   end
 end
