@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @unavalibility.name %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @unavalibility.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @unavalibility.end_time %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @unavalibility.group_id %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @unavalibility.message %>
+</p>
+
+<%= link_to 'Edit', edit_unavalibility_path(@unavalibility) %> |
+<%= link_to 'Back', unavalibilities_path %>

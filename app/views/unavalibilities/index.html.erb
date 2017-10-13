@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Unavalibilities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Group</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unavalibilities.each do |unavalibility| %>
+      <tr>
+        <td><%= unavalibility.name %></td>
+        <td><%= unavalibility.start_time %></td>
+        <td><%= unavalibility.end_time %></td>
+        <td><%= unavalibility.group_id %></td>
+        <td><%= unavalibility.message %></td>
+        <td><%= link_to 'Show', unavalibility %></td>
+        <td><%= link_to 'Edit', edit_unavalibility_path(unavalibility) %></td>
+        <td><%= link_to 'Destroy', unavalibility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unavalibility', new_unavalibility_path %>

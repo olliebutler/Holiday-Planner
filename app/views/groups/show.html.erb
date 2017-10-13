@@ -11,6 +11,32 @@
 </p>
 
 <p>
+  <%= month_calendar do |date| %>
+    <%= date %>
+  <% end %>
+</p>
+
+
+<p>
+  <strong>Add dates of unavalibility:</strong>
+</p>
+
+<%= form_for(Unavalibility.create) do  |f| %>
+    <%= hidden_field_tag :group_id, @group.id%>
+    <%= hidden_field_tag :name, current_user.name %>
+    <%= f.label :start_date %>
+    <%= f.datetime_select :start_time %>
+    <%= f.label :end_date %>
+    <%= f.datetime_select :end_time %>
+    <%= f.submit 'Submit' %>
+<% end %>
+
+
+
+
+
+
+<p>
   <strong>Members:</strong>
   <% @group.users.each do |user| %>
     <tr>

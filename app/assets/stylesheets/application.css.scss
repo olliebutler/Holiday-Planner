@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+ .simple-calendar {
+   .day {background-color: green;
+        height: 100px;
+        width: 100px;}
+
+   .wday-0 {}
+   .wday-1 {}
+   .wday-2 {}
+   .wday-3 {}
+   .wday-4 {}
+   .wday-5 {}
+   .wday-6 {}
+
+   .today {background-color: blue;}
+   .past {}
+   .future {}
+
+   .start-date {}
+
+   .prev-month {background-color: grey;}
+   .next-month { background-color: grey;}
+   .current-month {}
+
+   .has-events {background-color: red;}
+ }
