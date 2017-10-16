@@ -35,6 +35,18 @@
 
 <%= render 'invitation' %>
 
+<h2>Add a comment:</h2>
+<%= render 'comment' %>
+
+<h2>Comments</h2>
+<% @group.comments.each do |comment| %>
+<p>
+  <strong><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %></strong>
+  <%= comment.body %>
+</p>
+
+<% end %>
+
 <b><%= link_to 'Go back to groups', groups_path %></b> |
+
 </body>
-</html>

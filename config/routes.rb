@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
+
   resources :groups
+  resources :comments
+
+
   resources :invites
 
   post '/groups/invite/accept', to: 'invites#accept'

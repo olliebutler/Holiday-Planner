@@ -1,0 +1,12 @@
+<%= form_for(Comment.new) do  |f| %>
+    <%= f.hidden_field :group_id, value: @group.id %>
+  <p>
+    <%= f.hidden_field :commenter, value: current_user.id %>
+  </p>
+  <p>
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
