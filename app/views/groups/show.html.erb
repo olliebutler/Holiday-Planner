@@ -1,14 +1,6 @@
 <h1><%= @group.title %></h1>
 <body><%= @group.body %>
-  <p>
-  <strong>Title:</strong>
-  <%= @group.title %>
-</p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @group.body %>
-</p>
 
 <p>
   <%= month_calendar events: @group.unavalibilities.each do |date, meetings| %>

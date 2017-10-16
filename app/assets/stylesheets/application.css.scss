@@ -13,10 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ table#t01 {
+    width: 65%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
  .simple-calendar {
-   .day {background-color: green;
+   .day {background-color: #bcffba;
         height: 100px;
-        width: 100px;}
+        width: 100px;
+        border-style: solid;}
 
    .wday-0 {}
    .wday-1 {}
@@ -26,15 +36,15 @@
    .wday-5 {}
    .wday-6 {}
 
-   .today {background-color: blue;}
+   .today {background-color: #badaff;}
    .past {}
    .future {}
 
    .start-date {}
 
-   .prev-month {background-color: grey;}
-   .next-month { background-color: grey;}
+   .prev-month {background-color: #dbdbdb;}
+   .next-month { background-color: #dbdbdb;}
    .current-month {}
 
-   .has-events {background-color: red;}
+   .has-events {background-color: #ff9393;}
  }
