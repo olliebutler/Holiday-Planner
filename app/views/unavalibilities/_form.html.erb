@@ -1,10 +1,10 @@
-<%= form_with(model: unavalibility, local: true) do |form| %>
-  <% if unavalibility.errors.any? %>
+<%= form_with(model: unavailability, local: true) do |form| %>
+  <% if unavailability.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(unavalibility.errors.count, "error") %> prohibited this unavalibility from being saved:</h2>
+      <h2><%= pluralize(unavailability.errors.count, "error") %> prohibited this unavailability from being saved:</h2>
 
       <ul>
-      <% unavalibility.errors.full_messages.each do |message| %>
+      <% unavailability.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,27 +13,27 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :unavalibility_name %>
+    <%= form.text_field :name, id: :unavailability_name %>
   </div>
 
   <div class="field">
     <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, id: :unavalibility_start_time %>
+    <%= form.datetime_select :start_time, id: :unavailability_start_time %>
   </div>
 
   <div class="field">
     <%= form.label :end_time %>
-    <%= form.datetime_select :end_time, id: :unavalibility_end_time %>
+    <%= form.datetime_select :end_time, id: :unavailability_end_time %>
   </div>
 
   <div class="field">
     <%= form.label :message %>
-    <%= form.text_area :message, id: :unavalibility_message %>
+    <%= form.text_area :message, id: :unavailability_message %>
   </div>
 
   <div class="field">
     <%= form.label :group_id %>
-    <%= form.text_field :group_id, id: :unavalibility_group_id %>
+    <%= form.text_field :group_id, id: :unavailability_group_id %>
   </div>
 
   <div class="actions">

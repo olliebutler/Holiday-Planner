@@ -13,10 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ table#t01 {
+   width: 65%;
+ }
  .simple-calendar {
    .day {background-color: green;
         height: 100px;
-        width: 100px;}
+        width:  100px;}
 
    .wday-0 {}
    .wday-1 {}

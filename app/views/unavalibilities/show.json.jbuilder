@@ -1,1 +1,1 @@
-json.partial! "unavalibilities/unavalibility", unavalibility: @unavalibility
+json.partial! "unavailabilities/unavailability", unavailability: @unavailability

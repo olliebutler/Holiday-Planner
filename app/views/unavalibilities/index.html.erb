@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Unavalibilities</h1>
+<h1>Unavailabilities</h1>
 
 <table>
   <thead>
@@ -15,16 +15,16 @@
   </thead>
 
   <tbody>
-    <% @unavalibilities.each do |unavalibility| %>
+    <% @unavailabilities.each do |unavailability| %>
       <tr>
-        <td><%= unavalibility.name %></td>
-        <td><%= unavalibility.start_time %></td>
-        <td><%= unavalibility.end_time %></td>
-        <td><%= unavalibility.message %></td>
-        <td><%= unavalibility.group %></td>
-        <td><%= link_to 'Show', unavalibility %></td>
-        <td><%= link_to 'Edit', edit_unavalibility_path(unavalibility) %></td>
-        <td><%= link_to 'Destroy', unavalibility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= unavailability.name %></td>
+        <td><%= unavailability.start_time %></td>
+        <td><%= unavailability.end_time %></td>
+        <td><%= unavailability.message %></td>
+        <td><%= unavailability.group %></td>
+        <td><%= link_to 'Show', unavailability %></td>
+        <td><%= link_to 'Edit', edit_unavailability_path(unavailability) %></td>
+        <td><%= link_to 'Destroy', unavailability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Unavalibility', new_unavalibility_path %>
+<%= link_to 'New Unavailability', new_unavailability_path %>

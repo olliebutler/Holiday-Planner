@@ -2,5 +2,5 @@ class Group < ApplicationRecord
   has_many :user_groups
   has_many :users, :through => :user_groups
   has_many :invites
-  has_many :unavalibilities
+  has_many :unavailabilities
 end

@@ -1,6 +1,6 @@
-class CreateUnavalibilities < ActiveRecord::Migration[5.1]
+class CreateUnavailabilities < ActiveRecord::Migration[5.1]
   def change
-    create_table :unavalibilities do |t|
+    create_table :unavailabilities do |t|
       t.string :name
       t.datetime :start_time
       t.datetime :end_time
