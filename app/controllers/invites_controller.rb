@@ -3,6 +3,7 @@ class InvitesController < ApplicationController
   def new
     @invie = Invite.new
   end
+
   def create
     @i = params[:invite]
     @user = User.find_by_email(@i[:email])
@@ -14,6 +15,7 @@ class InvitesController < ApplicationController
     @invite.save
     redirect_to Group.find(params[:group_id])
   end
+
   def accept
     @invite = Invite.find(params[:invite_id])
     @group = Group.find(@invite[:group_id])
@@ -21,4 +23,5 @@ class InvitesController < ApplicationController
     @invite.destroy
     redirect_to @group
   end
+  
 end

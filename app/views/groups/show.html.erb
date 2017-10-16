@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <h1><%= @group.title %></h1>
-</head>
 <body><%= @group.body %>
 
 
@@ -19,28 +14,8 @@
 <% end %>
 </p>
 
-
 <p>
-  <strong>Add dates of unavailability:</strong>
-</p>
-
-<%= form_for(Unavailability.create) do  |f| %>
-    <%= hidden_field_tag :group_id, @group.id%>
-    <%= hidden_field_tag :name, current_user.name %>
-    <%= f.label :start_date %>
-    <%= f.date_select :start_time %>
-    <%= f.label :end_date %>
-    <%= f.date_select :end_time %>
-    <%= f.submit 'Submit' %>
-<% end %>
-
-
-
-
-
-
-<p>
-  <strong>Members:</strong>
+  <h3>Members:</h3>
   <% @group.users.each do |user| %>
     <tr>
       <%= user.email %>
@@ -49,15 +24,16 @@
 </p>
 
 <p>
-  <strong>Invite:</strong>
+  <h3>Add dates of unavailability:</h3>
 </p>
 
-<%= form_for(Invite.new) do  |f| %>
-    <%= hidden_field_tag :group_id, @group.id %>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <%= f.submit 'Send' %>
-<% end %>
+<%= render 'unavailability' %>
+
+<p>
+  <h2>Invite:</h2>
+</p>
+
+<%= render 'invitation' %>
 
 <b><%= link_to 'Go back to groups', groups_path %></b> |
 </body>

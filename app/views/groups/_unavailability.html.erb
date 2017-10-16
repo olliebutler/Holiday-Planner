@@ -1,0 +1,9 @@
+<%= form_for(Unavailability.create) do  |f| %>
+    <%= hidden_field_tag :group_id, @group.id%>
+    <%= hidden_field_tag :name, current_user.name %>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_time %>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_time %>
+    <%= f.submit 'Submit' %>
+<% end %>
