@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171013125039) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "unavalibilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "unavailabilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "start_time"
     t.datetime "end_time"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171013125039) do
     t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_unavalibilities_on_group_id"
+    t.index ["group_id"], name: "index_unavailabilities_on_group_id"
   end
 
   create_table "user_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20171013125039) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "unavalibilities", "groups"
+  add_foreign_key "unavailabilities", "groups"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"
 end

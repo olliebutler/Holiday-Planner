@@ -1,9 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <h1><%= @group.title %></h1>
+</head>
 <body><%= @group.body %>
 
 
 <p>
-  <%= month_calendar events: @group.unavalibilities.each do |date, meetings| %>
+  <%= month_calendar events: @group.unavailabilities.each do |date, meetings| %>
   <%= date %>
 
   <% meetings.each do |meeting| %>
@@ -16,10 +21,10 @@
 
 
 <p>
-  <strong>Add dates of unavalibility:</strong>
+  <strong>Add dates of unavailability:</strong>
 </p>
 
-<%= form_for(Unavalibility.create) do  |f| %>
+<%= form_for(Unavailability.create) do  |f| %>
     <%= hidden_field_tag :group_id, @group.id%>
     <%= hidden_field_tag :name, current_user.name %>
     <%= f.label :start_date %>
@@ -56,3 +61,4 @@
 
 <b><%= link_to 'Go back to groups', groups_path %></b> |
 </body>
+</html>

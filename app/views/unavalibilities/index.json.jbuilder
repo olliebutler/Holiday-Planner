@@ -1,1 +1,1 @@
-json.array! @unavalibilities, partial: 'unavalibilities/unavalibility', as: :unavalibility
+json.array! @unavailabilities, partial: 'unavailabilities/unavailability', as: :unavailability

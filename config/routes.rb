@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :unavalibilities
+  resources :unavailabilities
   root to: 'visitors#index'
   devise_for :users
   resources :users
