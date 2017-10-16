@@ -14,8 +14,21 @@
  *= require_self
  */
 
- table#t01 {
-    width: 65%;
+.app {
+  display: flex;
+}
+
+.app__column {
+  flex: 1;
+  padding-top: 3em;
+}
+.app__column1 {
+  flex: 2;
+}
+
+.simple-calendar {
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 table, th, td {
