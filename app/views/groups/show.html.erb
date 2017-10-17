@@ -9,35 +9,31 @@
   </div>
 
   <div class="app__column">
-    <div id="rs">
-      <h1 style="text-align: center;"><%= @group.title %></h1>
-      <p style="text-align: center;"><%= @group.body %></p>
 
-      <p>
-        <h3>Add dates of unavailability:</h3>
-      </p>
+    <h1 style="text-align: center;"><%= @group.title %></h1>
+    <p style="text-align: center;"><%= @group.body %></p>
 
-      <%= render 'unavailability' %>
+    <p>
+      <h3>Add dates of unavailability:</h3>
+    </p>
 
-      <p>
-        <h3>Members:</h3>
-        <%= render 'members' %>
-      </p>
+    <%= render 'unavailability' %>
 
-      <p>
-        <h2>Invite:</h2>
-      </p>
+    <p>
+      <h3>Members:</h3>
+      <%= render 'members' %>
+    </p>
 
-      <%= render 'invitation' %>
+    <p>
+      <h2>Invite:</h2>
+    </p>
 
-      <h2>Add a comment:</h2>
-      <%= render 'comment' %>
+    <%= render 'invitation' %>
 
-      <h2>Comments</h2>
-      <% @group.comments.each do |comment| %>
-      <p>
-        <strong><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %></strong>
-        <%= comment.body %>
-      </p>
-  <% end %>
+    <h2>Add a comment:</h2>
+    <%= render 'comment' %>
+
+    <h2>Comments</h2>
+    <%= render 'displaycomments' %>
+  </div>
 </body>
