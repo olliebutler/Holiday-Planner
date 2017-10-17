@@ -1,16 +1,18 @@
-<h1>New Group</h1>
-<%= form_with scope: :group, local: true do |form| %>
-  <p>
-    <%= form.label "Group name" %><br>
-    <%= form.text_field :title %>
-  </p>
+<div style="margin-left:1em;padding-top:1em;">
+  <h1>New Group</h1>
+  <%= form_with scope: :group, local: true do |form| %>
+    <p>
+      <%= form.label "Group name" %><br>
+      <%= form.text_field :title %>
+    </p>
 
-  <p>
-    <%= form.label "About this group" %><br>
-    <%= form.text_area :body %>
-  </p>
+    <p>
+      <%= form.label "About this group" %><br>
+      <%= form.text_area :body %>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+</div>
