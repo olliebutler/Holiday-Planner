@@ -3,4 +3,5 @@ class Group < ApplicationRecord
   has_many :users, :through => :user_groups
   has_many :invites
   has_many :unavailabilities
+  has_many :comments
 end
