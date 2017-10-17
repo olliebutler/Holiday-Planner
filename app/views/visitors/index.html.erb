@@ -1,22 +1,23 @@
-<h3>Welcome</h3>
 
-<% if user_signed_in? %>
-  <strong>Your invites:</strong>
-  <% current_user.invitations.each do |invite|%>
+<div style="margin-left:1em;padding-top:1em;">
+  <h3>Welcome</h3>
+  <% if user_signed_in? %>
+    <strong>Your invites:</strong>
+    <% current_user.invitations.each do |invite|%>
+      <p>
+        <tr>
+          <%= invite.email %>
+          <%= link_to "Accept", groups_invite_accept_path(:invite_id => invite.id), method: :post %>
+        </tr>
+      <% end %>
+    </p>
     <p>
-      <tr>
-        <%= invite.email %>
-        <%= link_to "Accept", groups_invite_accept_path(:invite_id => invite.id), method: :post %>
-      </tr>
-    <% end %>
-  </p>
-  <p>
-    <strong>Your groups:</strong>
-    <% current_user.groups.each do |group|%>
-      <tr>
-        <%= link_to group.title , group %>
-      </tr>
-    <% end %>
-  </p>
-<% end %>
-</p>
+      <strong>Your groups:</strong>
+      <% current_user.groups.each do |group|%>
+        <tr>
+          <%= link_to group.title , group %>
+        </tr>
+      <% end %>
+    </p>
+  <% end %>
+</div>

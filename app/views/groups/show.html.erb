@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-<h1><%= @group.title %></h1>
-<body><%= @group.body %>
+
 
 
 <div class="app">
   <div class="app__column1">
     <p>
       <%= month_calendar events: @group.unavailabilities.each do |date, meetings| %>
-      <%= date %>
-
+      <%= date.day %><br><br>
+      <% arr = []%>
       <% meetings.each do |meeting| %>
-        <div>
-          <%= meeting.name %>
-        </div>
+          <%arr << meeting.name %>
+      <% end %>
+      <%= arr.to_sentence %>
+      <% if arr.size > 1 %>
+        are unavailable
+      <% elsif arr.size == 1%>
+        is unavailable
       <% end %>
     <% end %>
     </p>
@@ -21,8 +24,10 @@
 
   <div class="app__column">
     <div id="rs">
+      <h1 style="text-align: center;"><%= @group.title %></h1>
+      <p style="text-align: center;"><%= @group.body %></p>
       <p>
-        <strong>Add dates of unavailability:</strong>
+        <strong>Add dates of unavailability</strong>
       </p>
 
       <%= form_for(Unavailability.create) do  |f| %>
@@ -36,7 +41,7 @@
       <% end %>
 
       <p>
-        <strong>Members:</strong>
+        <strong>Members</strong><br>
         <% @group.users.each do |user| %>
           <tr>
             <%= user.email %>
@@ -44,20 +49,19 @@
         <% end %>
       </p>
 
-      <p>
-        <strong>Invite:</strong>
-      </p>
+
+      <strong>Invite User</strong>
+
 
       <%= form_for(Invite.new) do  |f| %>
           <%= hidden_field_tag :group_id, @group.id %>
-          <%= f.label :email %>
-          <%= f.email_field :email %>
+          <%= f.email_field :email, :placeholder => "Email Address" %>
           <%= f.submit 'Send' %>
       <% end %>
 
-      <b><%= link_to 'Go back to groups', groups_path %></b> |
-    <div>
-  <div>
+      <b><%= link_to 'Go back to groups', groups_path %></b>
+    </div>
+  </div>
 
 </body>
 </html>

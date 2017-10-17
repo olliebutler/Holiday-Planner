@@ -28,6 +28,7 @@ class UnavailabilitiesController < ApplicationController
     if @unavailability.group_id == nil || ""
       @unavailability.group_id = params[:group_id]
     end
+    @unavailability.name = params[:name]
     respond_to do |format|
       if @unavailability.save
         format.html { redirect_to Group.find(params[:group_id]), notice: 'Unavailability was successfully created.' }

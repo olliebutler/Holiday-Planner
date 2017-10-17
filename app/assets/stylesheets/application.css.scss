@@ -21,6 +21,7 @@
 .app__column {
   flex: 1;
   padding-top: 3em;
+  padding-left: 2em;
 }
 .app__column1 {
   flex: 2;
@@ -29,6 +30,7 @@
 .simple-calendar {
   padding-right: 1em;
   padding-left: 1em;
+  width: 100%;
 }
 
 table, th, td {
@@ -38,8 +40,9 @@ table, th, td {
  .simple-calendar {
    .day {background-color: #bcffba;
         height: 100px;
-        width: 100px;
-        border-style: solid;}
+        width: 10%;
+        border-style: solid;
+        vertical-align: text-top;}
 
    .wday-0 {}
    .wday-1 {}
