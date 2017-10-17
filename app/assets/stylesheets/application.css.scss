@@ -17,6 +17,10 @@
 #scrollable {
   height: 220px;
   overflow: scroll;
+  border: 1px solid #2c528e;
+  margin-right: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .app {
@@ -39,7 +43,7 @@
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #2c528e;
     border-collapse: collapse;
 }
  .simple-calendar {
