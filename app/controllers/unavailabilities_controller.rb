@@ -28,16 +28,21 @@ class UnavailabilitiesController < ApplicationController
     if @unavailability.group_id == nil || ""
       @unavailability.group_id = params[:group_id]
     end
-    @unavailability.name = params[:name]
-    respond_to do |format|
-      if @unavailability.save
-        format.html { redirect_to Group.find(params[:group_id]), notice: 'Unavailability was successfully created.' }
-        format.json { render :show, status: :created, location: @unavailability }
-      else
-        format.html { render :new }
-        format.json { render json: @unavailability.errors, status: :unprocessable_entity }
+    if @unavailability.start_time < @unavailability.end_time
+      @unavailability.name = params[:name]
+      respond_to do |format|
+        if @unavailability.save
+          format.html { redirect_to Group.find(params[:group_id]), notice: 'Unavailability was successfully created.' }
+          format.json { render :show, status: :created, location: @unavailability }
+        else
+          format.html { render :new }
+          format.json { render json: @unavailability.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to Group.find(params[:group_id]), alert: 'Start date cannot be after end date.'
     end
+
   end
 
   # PATCH/PUT /unavailabilities/1
