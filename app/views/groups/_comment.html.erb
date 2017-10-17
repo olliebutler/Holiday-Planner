@@ -4,7 +4,7 @@
     <%= f.hidden_field :commenter, value: current_user.id %>
   </p>
   <p>
-    <%= f.text_field :body %>
+    <%= f.text_field :body, placeholder: "Type Comment Here" %>
     <%= f.submit 'Submit' %>
   </p>
 <% end %>

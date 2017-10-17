@@ -14,6 +14,11 @@
  *= require_self
  */
 
+#scrollable {
+  height: 220px;
+  overflow: scroll;
+}
+
 .app {
   display: flex;
 }
