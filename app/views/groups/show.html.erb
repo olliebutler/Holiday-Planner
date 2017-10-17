@@ -4,43 +4,22 @@
 
 <div class="app">
   <div class="app__column1">
-    <p>
-      <%= month_calendar events: @group.unavailabilities.each do |date, meetings| %>
-      <%= date.day %><br><br>
-      <% arr = []%>
-      <% meetings.each do |meeting| %>
-          <%arr << meeting.name %>
-      <% end %>
-      <%= arr.to_sentence %>
-      <% if arr.size > 1 %>
-        are unavailable
-      <% elsif arr.size == 1%>
-        is unavailable
-      <% end %>
-    <% end %>
-    </p>
+    <%= render 'calendar' %>
   </div>
 
   <div class="app__column">
     <div id="rs">
       <h1 style="text-align: center;"><%= @group.title %></h1>
       <p style="text-align: center;"><%= @group.body %></p>
+
       <p>
-        <strong>Add dates of unavailability</strong>
+        <h3>Add dates of unavailability:</h3>
       </p>
 
-      <%= form_for(Unavailability.create) do  |f| %>
-          <%= hidden_field_tag :group_id, @group.id%>
-          <%= hidden_field_tag :name, current_user.name %>
-          <%= f.label :start_date %>
-          <%= f.date_select :start_time %>
-          <%= f.label :end_date %>
-          <%= f.date_select :end_time %>
-          <%= f.submit 'Submit' %>
-      <% end %>
+      <%= render 'unavailability' %>
 
       <p>
-        <strong>Members</strong><br>
+        <h3>Members:</h3>
         <% @group.users.each do |user| %>
           <tr>
             <%= user.email %>
@@ -48,57 +27,26 @@
         <% end %>
       </p>
 
+      <p>
+        <h2>Invite:</h2>
+      </p>
 
-      <strong>Invite User</strong>
+      <%= render 'invitation' %>
 
+      <h2>Add a comment:</h2>
+      <%= render 'comment' %>
 
-      <%= form_for(Invite.new) do  |f| %>
-          <%= hidden_field_tag :group_id, @group.id %>
-          <%= f.email_field :email, :placeholder => "Email Address" %>
-          <%= f.submit 'Send' %>
-      <% end %>
+      <h2>Comments</h2>
+      <% @group.comments.each do |comment| %>
+      <p>
+        <strong><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %></strong>
+        <%= comment.body %>
+      </p>
 
-      <b><%= link_to 'Go back to groups', groups_path %></b> |
-    <div>
-      <%= meeting.name %>
-    </div>
+      <b><%= link_to 'Go back to groups', groups_path %></b>
   <% end %>
-<% end %>
+
 </p>
 
-<p>
-  <h3>Members:</h3>
-  <% @group.users.each do |user| %>
-    <tr>
-      <%= user.email %>
-    </tr>
-  <% end %>
-</p>
-
-<p>
-  <h3>Add dates of unavailability:</h3>
-</p>
-
-<%= render 'unavailability' %>
-
-<p>
-  <h2>Invite:</h2>
-</p>
-
-<%= render 'invitation' %>
-
-<h2>Add a comment:</h2>
-<%= render 'comment' %>
-
-<h2>Comments</h2>
-<% @group.comments.each do |comment| %>
-<p>
-  <strong><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %></strong>
-  <%= comment.body %>
-</p>
-
-<% end %>
-
-<b><%= link_to 'Go back to groups', groups_path %></b> |
 
 </body>
