@@ -15,12 +15,13 @@
  */
 
 #scrollable {
-  height: 220px;
+  height: 210px;
   overflow: scroll;
   border: 1px solid #2c528e;
   margin-right: 1em;
   padding-left: 1em;
   padding-right: 1em;
+  padding-top: 10px;
 }
 
 .app {
