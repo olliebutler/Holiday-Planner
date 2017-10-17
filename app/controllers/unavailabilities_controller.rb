@@ -28,7 +28,7 @@ class UnavailabilitiesController < ApplicationController
     if @unavailability.group_id == nil || ""
       @unavailability.group_id = params[:group_id]
     end
-    if @unavailability.start_time < @unavailability.end_time
+    if @unavailability.start_time < @unavailability.end_time || @unavailability.start_time.to_date === @unavailability.end_time.to_date
       @unavailability.name = params[:name]
       respond_to do |format|
         if @unavailability.save
