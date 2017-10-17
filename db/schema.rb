@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20171016103525) do
   end
 
   create_table "invites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "email"
     t.integer "group_id"
+    t.string "email"
     t.integer "sender_id"
     t.integer "recipient_id"
     t.string "token"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171016103525) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -68,9 +69,6 @@ ActiveRecord::Schema.define(version: 20171016103525) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.datetime "date_of_birth"
-    t.boolean "is_female", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

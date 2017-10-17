@@ -6,7 +6,7 @@
     <% current_user.invitations.each do |invite|%>
       <p>
         <tr>
-          <%= invite.email %>
+          <%= invite.sender.name.capitalize %>
           <%= link_to "Accept", groups_invite_accept_path(:invite_id => invite.id), method: :post %>
         </tr>
       <% end %>

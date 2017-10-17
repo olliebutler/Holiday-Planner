@@ -1,39 +1,38 @@
 class InvitesController < ApplicationController
 
-  def new
-    @invie = Invite.new
-  end
-
   def create
-    @i = params[:invite]
-    @user = User.find_by_email(@i[:email])
+    set_recipient_id
+    @invite = Invite.create(invite_params)
 
-    begin
-      id = @user.id
-    rescue NoMethodError
-      redirect_to Group.find(params[:group_id]), notice: 'User does not exist.'
+    if @invite.errors.any?
+      @invite.errors.full_messages
     else
-      @invite = Invite.new
-      @invite.group_id = params[:group_id]
-      @invite.sender_id = current_user.id
-      @invite.recipient_id = @user.id
-      @invite.email = current_user.email
-
-      if @invite.save
-        redirect_to Group.find(params[:group_id]), notice: 'Invite was successfully sent.'
-
-      else
-        redirect_to Group.find(params[:group_id]), notice: 'Invite was not sent.'
-      end
+      redirect_to Group.find(invite_params[:group_id]), notice: 'Invitation sent'
     end
+
   end
 
   def accept
     @invite = Invite.find(params[:invite_id])
-    @group = Group.find(@invite[:group_id])
+    @group = Group.find(@invite.group_id)
     @group.users << current_user
     @invite.destroy
     redirect_to @group
   end
-  
+
+  private
+
+  def set_recipient_id
+    @user = User.find_by_email(invite_params.fetch(:email))
+    if @user
+      invite_params[:recipient_id] = @user.id
+    else
+      redirect_to Group.find(invite_params[:group_id]), alert: 'User doesn\'t exist'
+    end
+  end
+
+  def invite_params
+    @invite_params ||= params.require(:invite).permit(:group_id, :sender_id, :recipient_id, :email)
+  end
+
 end

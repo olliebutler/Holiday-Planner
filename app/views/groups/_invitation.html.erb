@@ -1,5 +1,11 @@
-<%= form_for(Invite.new) do  |f| %>
-    <%= hidden_field_tag :group_id, @group.id %>
-    <%= f.email_field :email, :placeholder => "Email Address" %>
+
+<%= form_for Invite.create do |f| %>
+  
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.hidden_field :group_id, value: @group.id %>
+    <%= f.hidden_field :sender_id, value: current_user.id %>
+    <%= f.hidden_field :recipient_id %>
     <%= f.submit 'Send' %>
+
 <% end %>
