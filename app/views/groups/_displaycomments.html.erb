@@ -1,18 +1,18 @@
 <div id="scrollable"
   <% @group.comments.sort_by{ |c| c.get_upvotes.size }.reverse.each do |comment| %>
   <p>
-    <strong><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %></strong>
-    <%= comment.body %>
-  </p>
+  <font size="5"><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %>
+    <strong> <%= comment.body %></strong></font>
   <%= link_to like_comment_path(comment), method: :put do %>
-    Upvote
+    <%= image_tag("thumbs_up.png") %>
     <%= comment.get_upvotes.size %>
   <% end %>
 
   <%= link_to dislike_comment_path(comment), method: :put do %>
-    Downvote
+    <%= image_tag("thumbs_down.png") %>
     <%= comment.get_downvotes.size %>
   <% end %>
   
+  </p>
 <% end %>
 </div>
