@@ -67,6 +67,37 @@
 
  }
 
+ .holiday_pic {
+
+   width: 100%;
+   max-height: 220px;
+
+ }
+
+ .holiday {
+   padding: 5px;
+   width: 350px;
+   height: 250px;
+   margin-top: 10px;
+   display:inline-block;
+   vertical-align: text-top;
+   text-align: center;
+
+   background-color: white;
+ }
+ .holidays {
+   padding: 0;
+   margin: 0;
+
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   justify-content: space-around;
+ }
+
 #scrollable {
   height: 150px;
   overflow: scroll;

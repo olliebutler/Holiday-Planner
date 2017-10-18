@@ -1,23 +1,40 @@
 
 <div style="margin-left:1em;padding-top:1em;">
-  <h3>Welcome</h3>
+
   <% if user_signed_in? %>
-    <strong>Your invites:</strong>
-    <% current_user.invitations.each do |invite|%>
-      <p>
+    <%if current_user.invitations.size > 0 %>
+      <strong>Your invites:</strong>
+      <% current_user.invitations.each do |invite|%>
         <tr>
-          <%= invite.sender.name.capitalize %>
+          <%= invite.group.title %>
+          with -
+          <% arr = [] %>
+          <% invite.group.users.each do |user| %>
+          <% arr << user.name %>
+          <%end%>
+          <%= arr.to_sentence%>
           <%= link_to "Accept", groups_invite_accept_path(:invite_id => invite.id), method: :post %>
         </tr>
       <% end %>
-    </p>
+    <%end%>
     <p>
-      <strong>Your holidays:</strong>
-      <% current_user.groups.each do |group|%>
-        <tr>
-          <%= link_to group.title , group %>
-        </tr>
-      <% end %>
+      <h1>Your holidays:</h1>
+      <% if current_user.groups.size > 0 %>
+        <div class="holidays">
+          <% current_user.groups.each do |group|%>
+            <div class="holiday">
+              <%= link_to group.title , group %>
+              <% if group.pic.file.nil? %>
+
+              <%else%>
+              <%= image_tag group.pic, class:"holiday_pic" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <%else%>
+        <p>To get started create a new holiday or ask your friend to send you an invite to an existing group! </p>
+      <%end%>
     </p>
   <% end %>
 </div>
