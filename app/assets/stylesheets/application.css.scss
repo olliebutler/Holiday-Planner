@@ -13,15 +13,62 @@
  *= require_tree .
  *= require_self
  */
+////////
 
+.tabs {
+  position: relative;
+  min-height: 200px; /* This part sucks */
+  clear: both;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+.tab {
+  float: left;
+}
+.tab label {
+  font-weight: bold;
+  background: #2c528e;
+  color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
+}
+.tab [type=radio] {
+  display: none;
+}
+.content {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: 1px solid #2c528e;
+}
+[type=radio]:checked ~ label {
+  background: white;
+  color: #636363;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+
+///////
  .group_pic {
-
+   display: block;
    width: 95%;
+   margin: auto;
+   max-height: 220px;
 
  }
 
 #scrollable {
-  height: 250px;
+  height: 150px;
   overflow: scroll;
   border: 1px solid #2c528e;
   margin-right: 1em;
