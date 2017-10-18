@@ -7,8 +7,7 @@
 
     <% if @group.pic.file.nil? %>
     <h1 style="text-align: center;"><%= @group.title.capitalize%></h1>
-    <p> Chose a group photo: </p>
-    <%= render 'uploadpic'%>
+    <p style="text-align: center;"> <%= @group.body %> </p>
     <%else%>
     <%= image_tag @group.pic, class:"group_pic" %>
     <% end %>
@@ -54,15 +53,14 @@
          </div>
      </div>
 
-  </div>
+    </div>
 
-
-
-    <h3>Make a suggestion:</h3>
-    <%= render 'comment' %>
 
     <h3>Holiday Suggestions</h3>
     <%= render 'displaycomments' %>
+
+    <h3>Make a suggestion:</h3>
+    <%= render 'comment' %>
 
   </div>
 
