@@ -4,4 +4,5 @@ class Group < ApplicationRecord
   has_many :invites
   has_many :unavailabilities
   has_many :comments
+  mount_uploader :pic, GroupPicUploader
 end

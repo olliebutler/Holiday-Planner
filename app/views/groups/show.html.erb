@@ -5,6 +5,10 @@
 
   <div class="app__column">
 
+    <% if @group.pic != nil %>
+    <%= image_tag @group.pic, class:"group_pic" %>
+    <% end %>
+
     <h1 style="text-align: center;"><%= @group.title.capitalize%></h1>
     <p style="text-align: center;"><%= @group.body %></p>
 
@@ -30,5 +34,11 @@
 
     <h3>Comments</h3>
     <%= render 'displaycomments' %>
+
+    <h3> Upload group picture</h3>
+    <%= render 'uploadpic'%>
+
+
   </div>
+
 </body>
