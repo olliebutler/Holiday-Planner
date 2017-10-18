@@ -18,11 +18,15 @@ end
 
 def uploadpic
   @group = Group.find(params[:id])
-  @group.pic = params[:group][:pic]
-  if @group.save
-    redirect_to @group, notice: 'File was successfully uploaded.'
-  else
-    redirect_to @group, alert: 'There was a problem uploading your file.'
+  begin
+    @group.pic = params[:group][:pic]
+    if @group.save
+      redirect_to @group, notice: 'File was successfully uploaded.'
+    else
+      redirect_to @group, alert: 'There was a problem uploading your file.'
+    end
+  rescue NoMethodError
+    redirect_to @group, alert: 'Please select a file.'
   end
 end
 
