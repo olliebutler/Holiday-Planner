@@ -1,0 +1,6 @@
+<%= form_for @group, :url => { :action => "uploadpic" } do |f| %>
+  <%= hidden_field_tag :group_id, @group.id%>
+  <%= f.file_field :pic%>
+  <%= f.submit 'Send' %>
+
+<% end %>

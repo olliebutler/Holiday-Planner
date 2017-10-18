@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   post 'groups/invite', to: 'invite#create'
   get 'groups/new', to: 'groups#new'
   post 'groups/new', to: 'groups#create'
+  post 'groups/:id/upload', to: 'groups#uploadpic'
+  patch 'groups/:id/upload', to: 'groups#uploadpic'
 end
