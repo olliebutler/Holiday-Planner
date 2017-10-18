@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018075442) do
+ActiveRecord::Schema.define(version: 20171018082916) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "commenter"
@@ -25,20 +25,15 @@ ActiveRecord::Schema.define(version: 20171018075442) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pic"
   end
 
   create_table "invites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "group_id"
     t.string "email"
+    t.integer "group_id"
     t.integer "sender_id"
     t.integer "recipient_id"
     t.string "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "polls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "topic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,7 +57,6 @@ ActiveRecord::Schema.define(version: 20171018075442) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -75,16 +69,11 @@ ActiveRecord::Schema.define(version: 20171018075442) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.datetime "date_of_birth"
+    t.boolean "is_female", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "vote_options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
-    t.bigint "poll_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["poll_id"], name: "index_vote_options_on_poll_id"
   end
 
   create_table "votes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -104,5 +93,4 @@ ActiveRecord::Schema.define(version: 20171018075442) do
   add_foreign_key "unavailabilities", "groups"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"
-  add_foreign_key "vote_options", "polls"
 end
