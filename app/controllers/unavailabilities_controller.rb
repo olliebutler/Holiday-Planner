@@ -40,6 +40,7 @@ class UnavailabilitiesController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /unavailabilities/1
   # PATCH/PUT /unavailabilities/1.json
   def update

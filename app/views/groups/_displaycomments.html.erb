@@ -4,5 +4,15 @@
     <strong><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %></strong>
     <%= comment.body %>
   </p>
+  <%= link_to like_comment_path(comment), method: :put do %>
+    Upvote
+    <%= comment.get_upvotes.size %>
+  <% end %>
+
+  <%= link_to dislike_comment_path(comment), method: :put do %>
+    Downvote
+    <%= comment.get_downvotes.size %>
+  <% end %>
+  
 <% end %>
 </div>

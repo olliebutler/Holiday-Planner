@@ -1,18 +1,5 @@
 class GroupsController < ApplicationController
 
-
-# def invite
-  # @invite = Invite.new
-  # @invite.sender_id = current_user.id
-  # @invite.group_id = params[:group_id]
-  # @invite.recipient_id = User.find_by_email(params[:email])
-  # if @invite.save
-  #   redirect_to @group
-  # else
-  #   redirect_to current_user
-  # end
-# end
-
 def index
   @groups = current_user.groups
 end

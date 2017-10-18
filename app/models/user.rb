@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :groups, :through => :user_groups
   has_many :invitations, :class_name => "Invite", :foreign_key => 'recipient_id'
   has_many :sent_invites, :class_name => "Invite", :foreign_key => 'sender_id'
+
+  acts_as_voter
 end
