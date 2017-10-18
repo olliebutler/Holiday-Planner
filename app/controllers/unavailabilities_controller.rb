@@ -66,7 +66,7 @@ class UnavailabilitiesController < ApplicationController
   def destroy
     @unavailability.destroy
     respond_to do |format|
-      format.html { redirect_to unavailabilities_url, notice: 'Unavailability was successfully destroyed.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Unavailability was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -79,6 +79,6 @@ class UnavailabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unavailability_params
-      params.require(:unavailability).permit(:name, :start_time, :end_time, :message, :group_id)
+      params.require(:unavailability).permit(:name, :start_time, :end_time, :message, :group_id, :user_id)
     end
 end

@@ -2,8 +2,12 @@
   <%= month_calendar events: @group.unavailabilities.each do |date, meetings| %>
   <%= date.day %><br><br>
   <% arr = []%>
-  <% meetings.each do |meeting| %>
+  <% meetings.each_with_index do |meeting, i| %>
       <%arr << meeting.name %>
+      <% if meeting.start_time.day == date.day %>
+      <%= link_to 'Make available', meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <br>
+    <% end %>
   <% end %>
   <%= arr.to_sentence %>
   <% if arr.size > 1 %>

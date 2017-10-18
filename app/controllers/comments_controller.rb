@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-    redirect_back fallback_location: root_path 
+    redirect_to group_path(comment_params[:group_id])
   end
 
   def upvote

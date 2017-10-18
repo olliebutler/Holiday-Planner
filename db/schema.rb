@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20171018082916) do
   end
 
   create_table "invites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "email"
     t.integer "group_id"
+    t.string "email"
     t.integer "sender_id"
     t.integer "recipient_id"
     t.string "token"
@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 20171018082916) do
     t.datetime "end_time"
     t.text "message"
     t.bigint "group_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_unavailabilities_on_group_id"
+    t.index ["user_id"], name: "index_unavailabilities_on_user_id"
   end
 
   create_table "user_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171018082916) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -69,9 +72,6 @@ ActiveRecord::Schema.define(version: 20171018082916) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.datetime "date_of_birth"
-    t.boolean "is_female", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20171018082916) do
   end
 
   add_foreign_key "unavailabilities", "groups"
+  add_foreign_key "unavailabilities", "users"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"
 end
