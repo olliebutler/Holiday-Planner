@@ -23,11 +23,13 @@
         <div class="holidays">
           <% current_user.groups.each do |group|%>
             <div class="holiday">
-              <%= link_to group.title , group %>
               <% if group.pic.file.nil? %>
-
+                <p id="big"> <%= link_to group.title , group %> </p>
               <%else%>
-              <%= image_tag group.pic, class:"holiday_pic" %>
+                <%= link_to group.title , group %> 
+                <%= link_to group do %>
+                   <%= image_tag group.pic, class:"holiday_pic" %>
+                <% end %>
               <% end %>
             </div>
           <% end %>

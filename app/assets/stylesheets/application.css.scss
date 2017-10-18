@@ -68,10 +68,14 @@
  }
 
  .holiday_pic {
-
    width: 100%;
-   max-height: 220px;
-
+   max-height: 200;
+   padding-top: 1em;
+ }
+ #big{
+   font-size: 4vw;
+   line-height: 50px;
+   color: #17317f;
  }
 
  .holiday {
@@ -88,7 +92,6 @@
  .holidays {
    padding: 0;
    margin: 0;
-
    display: -webkit-box;
    display: -moz-box;
    display: -ms-flexbox;
