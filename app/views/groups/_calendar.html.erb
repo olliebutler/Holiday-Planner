@@ -1,15 +1,15 @@
 <p>
   <%= month_calendar events: @group.unavailabilities.each do |date, meetings| %>
-  <%= date.day %><br><br>
-  <% arr = []%>
-  <% meetings.each do |meeting| %>
-      <%arr << meeting.name %>
-  <% end %>
-  <%= arr.to_sentence %>
-  <% if arr.size > 1 %>
-    are unavailable
-  <% elsif arr.size == 1%>
-    is unavailable
-  <% end %>
+    <%= date.day %><br><br>
+    <% arr = []%>
+    <% meetings.each do |meeting| %>
+        <%arr << meeting.name %>
+    <% end %>
+    <%= arr.to_sentence %>
+    <% if arr.size > 1 %>
+      are unavailable
+    <% elsif arr.size == 1%>
+      is unavailable
+    <% end %>
 <% end %>
 </p>

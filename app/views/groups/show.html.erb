@@ -5,39 +5,64 @@
 
   <div class="app__column">
 
-    <% if @group.pic != nil %>
+    <% if @group.pic.file.nil? %>
+    <h1 style="text-align: center;"><%= @group.title.capitalize%></h1>
+    <p> Chose a group photo: </p>
+    <%= render 'uploadpic'%>
+    <%else%>
     <%= image_tag @group.pic, class:"group_pic" %>
     <% end %>
 
-    <h1 style="text-align: center;"><%= @group.title.capitalize%></h1>
-    <p style="text-align: center;"><%= @group.body %></p>
+    <div class="tabs">
 
-    <p>
-      <h3>Add dates of unavailability:</h3>
-    </p>
+      <div class="tab">
+          <input type="radio" id="tab-1" name="tab-group-1" checked>
+          <label for="tab-1">Group</label>
 
-    <%= render 'unavailability' %>
+          <div class="content">
+            <h1 style="text-align: center;"><%= @group.title.capitalize%></h1>
+            <p style="text-align: center;"><%= @group.body %></p>
+          </div>
 
-    <p>
-      <h3>Members:</h3>
-      <%= render 'members' %>
-    </p>
+      </div>
 
-    <p>
-      <h3>Invite:</h3>
-    </p>
+     <div class="tab">
+         <input type="radio" id="tab-2" name="tab-group-1" checked>
+         <label for="tab-2">Unavailability</label>
 
-    <%= render 'invitation' %>
+         <div class="content">
+             <%= render 'unavailability' %>
+         </div>
+     </div>
+
+     <div class="tab">
+         <input type="radio" id="tab-3" name="tab-group-1">
+         <label for="tab-3">Members</label>
+
+         <div class="content">
+             <%= render 'members' %>
+             <%= render 'invitation' %>
+         </div>
+     </div>
+
+      <div class="tab">
+         <input type="radio" id="tab-4" name="tab-group-1">
+         <label for="tab-4">Picture</label>
+
+         <div class="content">
+            <%= render 'uploadpic'%>
+         </div>
+     </div>
+
+  </div>
+
+
 
     <h3>Make a suggestion:</h3>
     <%= render 'comment' %>
 
     <h3>Holiday Suggestions</h3>
     <%= render 'displaycomments' %>
-
-    <h3> Upload group picture</h3>
-    <%= render 'uploadpic'%>
-
 
   </div>
 
