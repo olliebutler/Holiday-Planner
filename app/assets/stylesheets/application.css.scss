@@ -27,7 +27,7 @@
 }
 .tab label {
   font-weight: bold;
-  background: #2c528e;
+  background: #17317f;
   color: white;
   padding: 10px;
   border: 1px solid #ccc;
@@ -46,7 +46,7 @@
   right: 0;
   bottom: 0;
   padding: 20px;
-  border: 1px solid #2c528e;
+  border: 1px solid #17317f;
 }
 [type=radio]:checked ~ label {
   background: white;
@@ -70,7 +70,7 @@
 #scrollable {
   height: 150px;
   overflow: scroll;
-  border: 1px solid #2c528e;
+  border: 1px solid #17317f;
   margin-right: 1em;
   padding-left: 1em;
   padding-right: 1em;
@@ -102,13 +102,13 @@
 }
 
 table, th, td {
-    border: 1px solid #2c528e;
+    border: 1px solid #17317f;
     border-collapse: collapse;
 }
 .calendar-heading {
   font-weight: bold;
   color: white;
-  background-color: #2c528e;
+  background-color: #17317f;
   padding-bottom: 1em;
   padding-left: 1em;
   padding-top: 1em;
@@ -117,11 +117,11 @@ table, th, td {
 }
 .calendar-heading a{
   color: white;
-  background-color: #2c528e;
+  background-color: #17317f;
 }
 .simple-calendar th{
   color: white;
-  background-color: #2c528e;
+  background-color: #17317f;
 
 }
 .simple-calendar td{

@@ -2,9 +2,9 @@
     <%= hidden_field_tag :group_id, @group.id%>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= hidden_field_tag :name, current_user.name %>
-    <h3>Start Date</h3>
-    <%= f.date_select :start_time %>
-    <h3>End Date</h3>
-    <%= f.date_select :end_time %>
+    <h3>Start Date
+    <%= f.date_select :start_time %></h3>
+    <h3>End Date
+    <%= f.date_select :end_time %></h3>
     <%= f.submit 'Submit' %>
 <% end %>

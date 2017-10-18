@@ -1,9 +1,8 @@
-<p>
-  <% arr = [] %>
-  <% @group.users.each do |user| %>
-    <tr>
-      <% arr << user.name %>
-    </tr>
-  <% end %>
-  <%= arr.to_sentence %>
-</p>
+<h3> Current members:</h3>
+<% arr = [] %>
+<% @group.users.each do |user| %>
+  <tr>
+    <% arr << user.name %>
+  </tr>
+<% end %>
+<%= arr.to_sentence %>

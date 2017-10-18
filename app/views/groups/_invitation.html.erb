@@ -1,7 +1,5 @@
-
+<h3>Invite new members:</h3>
 <%= form_for Invite.create do |f| %>
-
-
     <%= f.email_field :email, placeholder: "Email Address"%>
     <%= f.hidden_field :group_id, value: @group.id %>
     <%= f.hidden_field :sender_id, value: current_user.id %>
