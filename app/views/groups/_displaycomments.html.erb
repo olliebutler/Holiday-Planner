@@ -1,5 +1,5 @@
 <div id="scrollable"
-<% @group.comments.reverse.each do |comment| %>
+  <% @group.comments.sort_by{ |c| c.get_upvotes.size }.reverse.each do |comment| %>
   <p>
     <strong><%= "#{User.find_by_id(comment.commenter).name.capitalize}: "  %></strong>
     <%= comment.body %>

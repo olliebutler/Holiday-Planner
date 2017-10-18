@@ -1,4 +1,5 @@
 class UnavailabilitiesController < ApplicationController
+
   before_action :set_unavailability, only: [:show, :edit, :update, :destroy]
 
   # GET /unavailabilities
