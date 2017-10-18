@@ -12,7 +12,9 @@
     <%= image_tag("thumbs_down.png") %>
     <%= comment.get_downvotes.size %>
   <% end %>
-  
   </p>
+  <% if current_user.id == comment.commenter %>
+    <%= link_to 'Delete suggestion', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <% end %>
 </div>
