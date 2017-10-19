@@ -161,14 +161,18 @@ table, th, td {
 .simple-calendar td{
   color: #636363;
 }
+#day {
+  text-align: left;
+  margin-top: 5px;
+}
  .simple-calendar {
    .day {background-color: #bcffba;
         height: 100px;
         width: 12%;
         min-width: 12%;
         border-style: solid;
+        text-align: center;
         vertical-align: text-top;}
-
    .wday-0 {}
    .wday-1 {}
    .wday-2 {}
