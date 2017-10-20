@@ -1,8 +1,5 @@
 <h3> Current members:</h3>
-<% arr = [] %>
 <% @group.users.each do |user| %>
-  <tr>
-    <% arr << user.name %>
-  </tr>
-<% end %>
-<%= arr.to_sentence %>
+  <%= link_to user.name.capitalize, :controller => :groups, :action => :show_user, :user_id => user.id %>
+ <% end %>
+

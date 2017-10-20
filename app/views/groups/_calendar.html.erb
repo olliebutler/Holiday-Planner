@@ -5,7 +5,7 @@
   <% meetings.each_with_index do |meeting, i| %>
       <%arr << meeting.name %>
       <% if meeting.start_time.day == date.day && current_user.id == meeting.user_id %>
-      <%= link_to 'Make available', meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Become available', meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
       <br>
     <% end %>
   <% end %>

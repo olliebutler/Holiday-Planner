@@ -16,15 +16,6 @@ def edit
   @group = Group.find(params[:id])
 end
 
-def uploadpic
-  @group = Group.find(params[:id])
-  @group.pic = params[:group][:pic]
-  if @group.save
-    redirect_to @group, notice: 'File was successfully uploaded.'
-  else
-    redirect_to @group, alert: 'There was a problem uploading your file.'
-  end
-end
 
 def create
 @group = Group.new(group_params)
@@ -56,10 +47,25 @@ def destroy
   redirect_to groups_path
 end
 
+def upload_pic
+  @group = Group.find(params[:id])
+  @group.pic = params[:group][:pic]
+  if @group.save
+    redirect_to @group, notice: 'File was successfully uploaded.'
+  else
+    redirect_to @group, alert: 'There was a problem uploading your file.'
+  end
+end
+
+def show_user
+  @user = User.find(params[:user_id])
+  @group = Group.find(params[:id])
+end
+
 private
 
 def group_params
-  params.require(:group).permit(:title, :body)
+  params.require(:group).permit(:title, :body, :admin)
 end
 
 end

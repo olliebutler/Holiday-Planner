@@ -1,0 +1,14 @@
+<h3>User</h3>
+
+<p>Name: <%= @user.name if @user.name %></p>
+<p>Email: <%= @user.email if @user.email %></p>
+
+<% if current_user.id == @group.admin %>
+  <% unless current_user.id == @user.id %>
+  <%= link_to "Remove user", remove_user_group_path(:user_group => { :user_id => @user.id, 
+                                                                     :group_id => @group.id }),
+                                                                     method: :delete,
+                                                                     data: {confirm: 'Are you sure?'} %>
+<% end %>
+<% end %>
+

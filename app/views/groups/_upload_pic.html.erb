@@ -1,6 +1,6 @@
 <h3>Upload a new grup photo</h3>
 
-<%= form_for @group, :url => { :action => "uploadpic" } do |f| %>
+<%= form_for @group, :url => { :action => "upload_pic" } do |f| %>
   <%= hidden_field_tag :group_id, @group.id%>
   <%= f.file_field :pic%>
   <%= f.submit 'Send' %>

@@ -1,6 +1,7 @@
 <div style="margin-left:1em;padding-top:1em;">
   <h1>New Group</h1>
   <%= form_with scope: :group, local: true do |form| %>
+    <%= form.hidden_field :admin, value: current_user.id %>
     <p>
       <%= form.label "Group name" %><br>
       <%= form.text_field :title %>
