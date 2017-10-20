@@ -1,6 +1,6 @@
 <p>
   <%= month_calendar events: @group.unavailabilities.each do |date, meetings| %>
-  <%= date.day %><br><br>
+  <h4 id="day"><%= date.day %></h4>
   <% arr = []%>
   <% meetings.each_with_index do |meeting, i| %>
       <%arr << meeting.name %>

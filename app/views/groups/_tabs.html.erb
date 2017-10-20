@@ -1,0 +1,42 @@
+<div class="tabs">
+
+  <div class="tab">
+      <input type="radio" id="tab-1" name="tab-group-1" checked>
+      <label for="tab-1">Group</label>
+
+      <div class="content">
+        <h2 style="text-align: center;"><%= @group.title.capitalize%></h2>
+        <p style="text-align: center;"><%= @group.body %></p>
+      </div>
+
+  </div>
+
+ <div class="tab">
+     <input type="radio" id="tab-2" name="tab-group-1" checked>
+     <label for="tab-2">Unavailability</label>
+
+     <div class="content">
+         <%= render 'unavailability' %>
+     </div>
+ </div>
+
+ <div class="tab">
+     <input type="radio" id="tab-3" name="tab-group-1">
+     <label for="tab-3">Members</label>
+
+     <div class="content">
+         <%= render 'members' %>
+         <%= render 'invitation' %>
+     </div>
+ </div>
+
+  <div class="tab">
+     <input type="radio" id="tab-4" name="tab-group-1">
+     <label for="tab-4">Picture</label>
+
+     <div class="content">
+        <%= render 'uploadpic'%>
+     </div>
+ </div>
+
+</div>
